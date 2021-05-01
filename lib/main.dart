@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -29,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(''),
       ),
       body: Center(
         child: Column(
