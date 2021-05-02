@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:rolo/Screen/HomeScreen.dart';
 
 class CreateAccount extends StatefulWidget {
   @override
@@ -156,7 +157,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     )
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(height: 60,),
               GestureDetector(
                 onTap: () {
                   _showPicker(context);
@@ -188,6 +189,8 @@ class _CreateAccountState extends State<CreateAccount> {
                 ),
               ),
               SizedBox(height: 20,),
+              Text('Upload profile picture',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+              SizedBox(height: 80,),
 
               Padding(
                 padding: const EdgeInsets.only(left: 24.0,right: 24),
@@ -310,17 +313,25 @@ class _CreateAccountSecondState extends State<CreateAccountSecond> {
                 ),
               ),
               SizedBox(height: 280,),
-              Padding(
-                padding: const EdgeInsets.only(left: 24.0,right: 24),
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color:  Colors.white,
-                    borderRadius: BorderRadius.circular(7),
-                  ),
-                  child: Center(
-                    child:Text('Next',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 24.0,right: 24),
+                  child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color:  Colors.white,
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                    child: Center(
+                      child:Text('Next',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                    ),
                   ),
                 ),
               ),

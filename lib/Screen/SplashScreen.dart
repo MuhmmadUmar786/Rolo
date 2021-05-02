@@ -1,6 +1,7 @@
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:rolo/Screen/CreateAccount.dart';
+import 'package:toast/toast.dart';
 // import 'package:flutter_signin_button/button_list.dart';
 // import 'package:flutter_signin_button/button_view.dart';
 
@@ -45,17 +46,22 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0,right: 15),
-              child: Container(
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color:  Colors.white,
-                  borderRadius: BorderRadius.circular(7),
-                ),
-                child: Center(
-                  child:Text('Request an invite',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+            GestureDetector(
+              onTap: (){
+                Toast.show("Request an invite", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15.0,right: 15),
+                child: Container(
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color:  Colors.white,
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: Center(
+                    child:Text('Request an invite',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                  ),
                 ),
               ),
             ),
@@ -102,7 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
             AppleAuthButton(
               // key: const ValueKey<String>(''),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CreateAccount()),
+                );
+              },
               onLongPress: () {},
               text: 'Sign up with Apple',
               darkMode: false,
@@ -137,7 +148,12 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 15,),
             GoogleAuthButton(
               // key: const ValueKey<String>(''),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CreateAccount()),
+                );
+              },
               onLongPress: () {},
               text: 'Sign up with Google',
               darkMode: false,
@@ -172,7 +188,13 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 15,),
             FacebookAuthButton(
               // key: const ValueKey<String>(''),
-              onPressed: () {},
+              onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CreateAccount()),
+                  );
+
+              },
               onLongPress: () {},
               text: 'Sign up with Facebook',
               darkMode: false,
