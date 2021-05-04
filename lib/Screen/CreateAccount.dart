@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:rolo/Screen/AddSkillScreen.dart';
 import 'package:rolo/Screen/HomeScreen.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -317,7 +318,7 @@ class _CreateAccountSecondState extends State<CreateAccountSecond> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => AddSkillScreen()),
                   );
                 },
                 child: Padding(
