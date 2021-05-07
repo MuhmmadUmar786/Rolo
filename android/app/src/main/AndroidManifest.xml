@@ -2,9 +2,9 @@
     package="com.hollysoft.rolo">
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="Rolo"
+        android:label="ROLO"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

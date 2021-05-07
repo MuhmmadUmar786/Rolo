@@ -5,6 +5,7 @@ import 'package:rolo/Screen/HomeScreen.dart';
 import 'package:rolo/Screen/ProfileScreen.dart';
 import 'package:on_boarding_ui/model/slider.dart' as SliderModel;
 import 'RolodexScreen.dart';
+import 'UploadScreen.dart';
 
 class JobScreen extends StatefulWidget {
   @override
@@ -34,6 +35,14 @@ class _JobScreenState extends State<JobScreen> with TickerProviderStateMixin{
         );
       });
     }
+    else   if(index==2){
+      setState(() {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => UploadScreen()),
+        );
+      });
+    }
     else   if(index==4){
       setState(() {
         Navigator.pushReplacement(
@@ -51,7 +60,7 @@ class _JobScreenState extends State<JobScreen> with TickerProviderStateMixin{
 
       appBar: AppBar(
         backgroundColor:Color(0xff080404) ,
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         title:Text('Jobs',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
 
       ),
@@ -119,36 +128,6 @@ class _JobScreenState extends State<JobScreen> with TickerProviderStateMixin{
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'Rolodex',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_box_outlined),
-            label: 'Upload',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
-            label: 'Jobs',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey[600],
-        backgroundColor:Color(0xff080404) ,
-        onTap: _onItemTapped,
       ),
     );
   }

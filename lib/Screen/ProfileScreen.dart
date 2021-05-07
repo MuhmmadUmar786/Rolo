@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rolo/Screen/EditProfileScreen.dart';
 import 'package:rolo/Screen/HomeScreen.dart';
+import 'package:rolo/Screen/InboxScreen.dart';
 import 'package:rolo/Screen/JobScreen.dart';
+import 'package:rolo/Screen/UploadScreen.dart';
 import 'package:rolo/Widget/SkillSpecifButton.dart';
+import 'package:share/share.dart';
 
 import 'RolodexScreen.dart';
 
@@ -45,7 +49,15 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
       setState(() {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => JobScreen()),
+          MaterialPageRoute(builder: (context) => InboxScreen()),
+        );
+      });
+    }
+    else  if(index==2){
+      setState(() {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => UploadScreen()),
         );
       });
     }
@@ -63,15 +75,23 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 14.0,top: 10,bottom: 14),
-            child: Container(
-              height: 25,
-              width: 120,
-              decoration: BoxDecoration(
-                color: Colors.grey[800],
-                borderRadius: BorderRadius.circular(7),
-              ),
-              child: Center(
-                child: Text('EDIT PROFILE',style: TextStyle(color: Colors.white),),
+            child: GestureDetector(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                );
+              },
+              child: Container(
+                height: 25,
+                width: 120,
+                decoration: BoxDecoration(
+                  color: Colors.grey[800],
+                  borderRadius: BorderRadius.circular(7),
+                ),
+                child: Center(
+                  child: Text('EDIT PROFILE',style: TextStyle(color: Colors.white),),
+                ),
               ),
             ),
           )
@@ -171,9 +191,14 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                               backgroundColor: Colors.black,
                               child: Icon(Icons.message,color: Colors.white,),
                             ),
-                            CircleAvatar(
-                              backgroundColor: Colors.black,
-                              child: Icon(Icons.send,color: Colors.white,),
+                            GestureDetector(
+                              onTap: (){
+                                Share.share('check out my website https://example.com');
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: Colors.black,
+                                child: Icon(Icons.send,color: Colors.white,),
+                              ),
                             ),
                           ],
                         )
@@ -404,8 +429,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
             label: 'Upload',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
-            label: 'Jobs',
+            icon: Icon(Icons.messenger_outline_outlined),
+            label: 'Inbox',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),

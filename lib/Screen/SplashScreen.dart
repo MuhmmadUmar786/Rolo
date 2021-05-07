@@ -1,6 +1,7 @@
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:rolo/Screen/CreateAccount.dart';
+import 'package:rolo/Screen/InvitationScreen.dart';
 import 'package:toast/toast.dart';
 // import 'package:flutter_signin_button/button_list.dart';
 // import 'package:flutter_signin_button/button_view.dart';
@@ -48,7 +49,10 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             GestureDetector(
               onTap: (){
-                Toast.show("Request an invite", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InvitationScreen()),
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.only(left: 15.0,right: 15),

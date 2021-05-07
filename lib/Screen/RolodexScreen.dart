@@ -1,9 +1,13 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:rolo/Screen/HomeScreen.dart';
+import 'package:rolo/Screen/InboxScreen.dart';
+import 'package:video_player/video_player.dart';
 
 import 'JobScreen.dart';
 import 'ProfileScreen.dart';
+import 'UploadScreen.dart';
 
 class RolodexScreen extends StatefulWidget {
   @override
@@ -11,6 +15,42 @@ class RolodexScreen extends StatefulWidget {
 }
 
 class _RolodexScreenState extends State<RolodexScreen> with TickerProviderStateMixin{
+
+  TargetPlatform _platform;
+   VideoPlayerController _videoPlayerController1;
+   VideoPlayerController _videoPlayerController2;
+  ChewieController _chewieController;
+
+  @override
+  void initState() {
+    super.initState();
+    initializePlayer();
+  }
+
+  @override
+  void dispose() {
+    _videoPlayerController1.dispose();
+    _videoPlayerController2.dispose();
+    _chewieController?.dispose();
+    super.dispose();
+  }
+
+  Future<void> initializePlayer() async {
+    _videoPlayerController1 = VideoPlayerController.network(
+        'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4');
+    _videoPlayerController2 = VideoPlayerController.network(
+        'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4');
+    await Future.wait([
+      _videoPlayerController1.initialize(),
+      _videoPlayerController2.initialize()
+    ]);
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController1,
+      autoPlay: true,
+      looping: true,
+    );
+    setState(() {});
+  }
 
   List<String> welcomeImages = [
     "assets/alex.jpg",
@@ -122,11 +162,19 @@ class _RolodexScreenState extends State<RolodexScreen> with TickerProviderStateM
         );
       });
     }
+    else   if(index==2){
+      setState(() {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => UploadScreen()),
+        );
+      });
+    }
     else   if(index==3){
       setState(() {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => JobScreen()),
+          MaterialPageRoute(builder: (context) => InboxScreen()),
         );
       });
     }
@@ -136,14 +184,12 @@ class _RolodexScreenState extends State<RolodexScreen> with TickerProviderStateM
   Widget build(BuildContext context) {
     CardController controller;
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor:Color(0xff080404) ,
         leading: _isSearching ? const BackButton() : Container(),
         title: _isSearching ? _buildSearchField() :Text('Rolodex',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
         actions: _buildActions(),
       ),
-
       body: DefaultTabController(
         length: 4,
         child: Scaffold(
@@ -291,7 +337,22 @@ class _RolodexScreenState extends State<RolodexScreen> with TickerProviderStateM
                       Container(
                         // color: Colors.white,
                         height:MediaQuery.of(context).size.height * 0.32,
-
+                        child: Center(
+                          child: _chewieController != null &&
+                              _chewieController
+                                  .videoPlayerController.value.isInitialized
+                              ? Chewie(
+                            controller: _chewieController,
+                          )
+                              : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              CircularProgressIndicator(),
+                              SizedBox(height: 20),
+                              Text('Loading'),
+                            ],
+                          ),
+                        ),
                       ),
 
                     ],
@@ -841,12 +902,10 @@ class _RolodexScreenState extends State<RolodexScreen> with TickerProviderStateM
                   ),
                 ),
               ),
-
             ],
           ),
         ),
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
@@ -863,8 +922,8 @@ class _RolodexScreenState extends State<RolodexScreen> with TickerProviderStateM
             label: 'Upload',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
-            label: 'Jobs',
+            icon: Icon(Icons.messenger_outline_outlined),
+            label: 'Inbox',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),

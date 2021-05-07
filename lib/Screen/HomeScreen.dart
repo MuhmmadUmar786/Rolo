@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
+import 'package:rolo/Screen/FilterScreen.dart';
+import 'package:rolo/Screen/InboxScreen.dart';
 import 'package:rolo/Screen/RolodexScreen.dart';
+import 'package:rolo/Screen/UploadScreen.dart';
 
 import 'JobScreen.dart';
 import 'ProfileScreen.dart';
@@ -68,6 +71,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
         icon: const Icon(Icons.search),
         onPressed: _startSearch,
       ),
+      IconButton(
+        icon: const Icon(Icons.filter_list_sharp),
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => FilterScreen()),
+          );
+        },
+      ),
     ];
   }
 
@@ -126,7 +138,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
       setState(() {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => JobScreen()),
+          MaterialPageRoute(builder: (context) => InboxScreen()),
+        );
+      });
+    }
+    else   if(index==2){
+      setState(() {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => UploadScreen()),
         );
       });
     }
@@ -905,8 +925,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
             label: 'Upload',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag_outlined),
-            label: 'Jobs',
+            icon: Icon(Icons.messenger_outline_outlined),
+            label: 'Inbox',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
