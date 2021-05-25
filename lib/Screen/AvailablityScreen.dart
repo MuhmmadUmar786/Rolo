@@ -166,7 +166,7 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
                 ),
               ),
 
-              SizedBox(height: 230,),
+              SizedBox(height: MediaQuery.of(context).size.height*0.4,),
               GestureDetector(
                 onTap: (){
                   Navigator.push(

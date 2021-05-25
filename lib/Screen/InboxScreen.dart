@@ -14,38 +14,36 @@ class InboxScreen extends StatefulWidget {
   _InboxScreenState createState() => _InboxScreenState();
 }
 
-class _InboxScreenState extends State<InboxScreen> with TickerProviderStateMixin{
-
+class _InboxScreenState extends State<InboxScreen>
+    with TickerProviderStateMixin {
   int _selectedIndex = 3;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    if(index==1){
+    if (index == 1) {
       setState(() {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => RolodexScreen()),
         );
       });
-    }
-    else   if(index==0){
+    } else if (index == 0) {
       setState(() {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => HomeScreen()),
         );
       });
-    }
-    else   if(index==2){
+    } else if (index == 2) {
       setState(() {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => UploadScreen()),
         );
       });
-    }
-    else   if(index==4){
+    } else if (index == 4) {
       setState(() {
         Navigator.pushReplacement(
           context,
@@ -59,48 +57,80 @@ class _InboxScreenState extends State<InboxScreen> with TickerProviderStateMixin
   Widget build(BuildContext context) {
     CardController controller;
     return Scaffold(
-      backgroundColor:Color(0xff080404) ,
+      backgroundColor: Color(0xff080404),
       appBar: AppBar(
-        backgroundColor:Color(0xff080404) ,
+        backgroundColor: Color(0xff080404),
         automaticallyImplyLeading: false,
-        title:Text('Messages',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        centerTitle: false,
+        title: Text(
+          'Inbox',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: FaIcon(FontAwesomeIcons.edit,color: Colors.white,),
+            child: FaIcon(
+              FontAwesomeIcons.edit,
+              color: Colors.white,
+            ),
           )
         ],
-
       ),
-
       body: Container(
         child: ListView(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: TextFormField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                        labelText: 'Search Inbox',
+                        labelStyle: TextStyle(color: Colors.white),
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.grey, width: 0.0),
+                        ),
+                        border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Colors.white)))),
+              ),
+            ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ChatScreenScreen()),
                 );
               },
               child: Padding(
-                padding: const EdgeInsets.only(left: 18.0,top: 10),
+                padding: const EdgeInsets.only(left: 18.0, top: 10),
                 child: Row(
                   children: [
                     CircleAvatar(
                       radius: 30,
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(34),
+                          borderRadius: BorderRadius.circular(14),
                           child: Image.asset('assets/me.jpg')),
                     ),
-                    SizedBox(width: 8,),
+                    SizedBox(
+                      width: 15,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('John Long',
-                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                        Text('Hello World! Its testing',
-                          style: TextStyle(color: Colors.white,fontSize: 15),),
+                        Text(
+                          'John Long',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                        ),
+                        Text(
+                          'Hello World! Its testing',
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
                       ],
                     )
                   ],
@@ -108,30 +138,39 @@ class _InboxScreenState extends State<InboxScreen> with TickerProviderStateMixin
               ),
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ChatScreenScreen()),
                 );
               },
               child: Padding(
-                padding: const EdgeInsets.only(left: 18.0,top: 10),
+                padding: const EdgeInsets.only(left: 18.0, top: 10),
                 child: Row(
                   children: [
                     CircleAvatar(
                       radius: 30,
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(34),
+                          borderRadius: BorderRadius.circular(14),
                           child: Image.asset('assets/alex.jpg')),
                     ),
-                    SizedBox(width: 8,),
+                    SizedBox(
+                      width: 15,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Alex Well',
-                          style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                        Text('Hello World! Its testing',
-                          style: TextStyle(color: Colors.white,fontSize: 15),),
+                        Text(
+                          'Alex Well',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                        ),
+                        Text(
+                          'Hello World! Its testing',
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
                       ],
                     )
                   ],
@@ -139,98 +178,133 @@ class _InboxScreenState extends State<InboxScreen> with TickerProviderStateMixin
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 18.0,top: 10),
+              padding: const EdgeInsets.only(left: 18.0, top: 10),
               child: Row(
                 children: [
                   CircleAvatar(
                     radius: 30,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(34),
+                        borderRadius: BorderRadius.circular(14),
                         child: Image.asset('assets/me.jpg')),
                   ),
-                  SizedBox(width: 8,),
+                  SizedBox(
+                    width: 15,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('John Long',
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                      Text('Hello World! Its testing',
-                        style: TextStyle(color: Colors.white,fontSize: 15),),
+                      Text(
+                        'John Long',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                      Text(
+                        'Hello World! Its testing',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                     ],
                   )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 18.0,top: 10),
+              padding: const EdgeInsets.only(left: 18.0, top: 10),
               child: Row(
                 children: [
                   CircleAvatar(
                     radius: 30,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(34),
+                        borderRadius: BorderRadius.circular(14),
                         child: Image.asset('assets/alex.jpg')),
                   ),
-                  SizedBox(width: 8,),
+                  SizedBox(
+                    width: 15,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Alex Well',
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                      Text('Hello World! Its testing',
-                        style: TextStyle(color: Colors.white,fontSize: 15),),
+                      Text(
+                        'Alex Well',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                      Text(
+                        'Hello World! Its testing',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                     ],
                   )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 18.0,top: 10),
+              padding: const EdgeInsets.only(left: 18.0, top: 10),
               child: Row(
                 children: [
                   CircleAvatar(
                     radius: 30,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(34),
+                        borderRadius: BorderRadius.circular(14),
                         child: Image.asset('assets/me.jpg')),
                   ),
-                  SizedBox(width: 8,),
+                  SizedBox(
+                    width: 15,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('John Long',
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                      Text('Hello World! Its testing',
-                        style: TextStyle(color: Colors.white,fontSize: 15),),
+                      Text(
+                        'John Long',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                      Text(
+                        'Hello World! Its testing',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                     ],
                   )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 18.0,top: 10),
+              padding: const EdgeInsets.only(left: 18.0, top: 10),
               child: Row(
                 children: [
                   CircleAvatar(
                     radius: 30,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(34),
+                        borderRadius: BorderRadius.circular(14),
                         child: Image.asset('assets/alex.jpg')),
                   ),
-                  SizedBox(width: 8,),
+                  SizedBox(
+                    width: 15,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Alex Well',
-                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                      Text('Hello World! Its testing',
-                        style: TextStyle(color: Colors.white,fontSize: 15),),
+                      Text(
+                        'Alex Well',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                      Text(
+                        'Hello World! Its testing',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                     ],
                   )
                 ],
               ),
             ),
-
           ],
         ),
       ),
@@ -261,27 +335,29 @@ class _InboxScreenState extends State<InboxScreen> with TickerProviderStateMixin
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey[600],
-        backgroundColor:Color(0xff080404) ,
+        backgroundColor: Color(0xff080404),
         onTap: _onItemTapped,
       ),
     );
   }
 }
 
-
 class ChatScreenScreen extends StatefulWidget {
   @override
   _ChatScreenScreenState createState() => _ChatScreenScreenState();
 }
 
-class _ChatScreenScreenState extends State<ChatScreenScreen> with TickerProviderStateMixin{
-
+class _ChatScreenScreenState extends State<ChatScreenScreen>
+    with TickerProviderStateMixin {
   List<ChatMessage> messages = [
     ChatMessage(messageContent: "Hello, Will", messageType: "receiver"),
     ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
-    ChatMessage(messageContent: "Hey Kriss, I am doing fine dude. wbu?", messageType: "sender"),
+    ChatMessage(
+        messageContent: "Hey Kriss, I am doing fine dude. wbu?",
+        messageType: "sender"),
     ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
-    ChatMessage(messageContent: "Is there any thing wrong?", messageType: "sender"),
+    ChatMessage(
+        messageContent: "Is there any thing wrong?", messageType: "sender"),
   ];
 
   final myController = TextEditingController();
@@ -296,7 +372,7 @@ class _ChatScreenScreenState extends State<ChatScreenScreen> with TickerProvider
   Widget build(BuildContext context) {
     CardController controller;
     return Scaffold(
-      backgroundColor:Color(0xff080404) ,
+      backgroundColor: Color(0xff080404),
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -307,54 +383,80 @@ class _ChatScreenScreenState extends State<ChatScreenScreen> with TickerProvider
             child: Row(
               children: <Widget>[
                 IconButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back,color: Colors.white,),
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
                 ),
-                SizedBox(width: 2,),
+                SizedBox(
+                  width: 2,
+                ),
                 CircleAvatar(
                   backgroundImage: AssetImage("assets/me.jpg"),
                   maxRadius: 20,
                 ),
-                SizedBox(width: 12,),
+                SizedBox(
+                  width: 12,
+                ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text("John Long",
-                        style: TextStyle( fontSize: 16 ,fontWeight: FontWeight.w600,color: Colors.white),),
-                      SizedBox(height: 6,),
-                      Text("Online",style: TextStyle(color: Colors.white, fontSize: 13),),
+                      Text(
+                        "John Long",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Text(
+                        "Online",
+                        style: TextStyle(color: Colors.white, fontSize: 13),
+                      ),
                     ],
                   ),
                 ),
-                Icon(Icons.settings,color: Colors.white,),
+                Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                ),
               ],
             ),
           ),
         ),
       ),
-       body:  Stack(
+      body: Stack(
         children: <Widget>[
           ListView.builder(
             itemCount: messages.length,
             shrinkWrap: true,
-            padding: EdgeInsets.only(top: 10,bottom: 10),
+            padding: EdgeInsets.only(top: 10, bottom: 10),
             physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (context, index){
+            itemBuilder: (context, index) {
               return Container(
-                padding: EdgeInsets.only(left: 14,right: 14,top: 10,bottom: 10),
+                padding:
+                    EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
                 child: Align(
-                  alignment: (messages[index].messageType == "receiver"?Alignment.topLeft:Alignment.topRight),
+                  alignment: (messages[index].messageType == "receiver"
+                      ? Alignment.topLeft
+                      : Alignment.topRight),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: (messages[index].messageType  == "receiver"?Colors.grey.shade200:Colors.blue[200]),
+                      // color: (messages[index].messageType  == "receiver"?Colors.grey.shade200:Colors.blue[200]),
                     ),
                     padding: EdgeInsets.all(16),
-                    child: Text(messages[index].messageContent, style: TextStyle(fontSize: 15),),
+                    child: Text(
+                      messages[index].messageContent,
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
                   ),
                 ),
               );
@@ -363,15 +465,14 @@ class _ChatScreenScreenState extends State<ChatScreenScreen> with TickerProvider
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
-              padding: EdgeInsets.only(left: 10,bottom: 10,top: 10),
+              padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
               height: 60,
               width: double.infinity,
               color: Colors.white,
               child: Row(
                 children: <Widget>[
                   GestureDetector(
-                    onTap: (){
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 30,
                       width: 30,
@@ -379,33 +480,43 @@ class _ChatScreenScreenState extends State<ChatScreenScreen> with TickerProvider
                         color: Colors.lightBlue,
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: Icon(Icons.add, color: Colors.white, size: 20, ),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                   ),
-                  SizedBox(width: 15,),
+                  SizedBox(
+                    width: 15,
+                  ),
                   Expanded(
                     child: TextField(
                       controller: myController,
                       decoration: InputDecoration(
                           hintText: "Write message...",
                           hintStyle: TextStyle(color: Colors.black54),
-                          border: InputBorder.none
-                      ),
+                          border: InputBorder.none),
                     ),
                   ),
-                  SizedBox(width: 15,),
+                  SizedBox(
+                    width: 15,
+                  ),
                   FloatingActionButton(
-                    onPressed: (){
+                    onPressed: () {
                       myController.clear();
-                      Toast.show("Sent", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-
+                      Toast.show("Sent", context,
+                          duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
                     },
-                    child: Icon(Icons.send,color: Colors.white,size: 18,),
+                    child: Icon(
+                      Icons.send,
+                      color: Colors.white,
+                      size: 18,
+                    ),
                     backgroundColor: Colors.blue,
                     elevation: 0,
                   ),
                 ],
-
               ),
             ),
           ),
@@ -415,8 +526,9 @@ class _ChatScreenScreenState extends State<ChatScreenScreen> with TickerProvider
   }
 }
 
-class ChatMessage{
+class ChatMessage {
   String messageContent;
   String messageType;
+
   ChatMessage({@required this.messageContent, @required this.messageType});
 }

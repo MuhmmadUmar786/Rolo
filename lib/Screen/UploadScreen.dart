@@ -129,12 +129,12 @@ class _UploadScreenState extends State<UploadScreen> with TickerProviderStateMix
             onTap: (){
               Alert(
                 context: context,
-                type: AlertType.info,
+                type: AlertType.none,
                 title: "Upload Your File",
                 desc: "Upload documents to a Portfolio",
                 buttons: [
                   DialogButton(
-
+                    color:Colors.black,
                     child: Text(
                       "Browse Files",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -279,169 +279,24 @@ class _UploadScreenState extends State<UploadScreen> with TickerProviderStateMix
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
-                                ),
-
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
-                                ),
-
-                              ],
-                            ),
-                          ],
-                        ),
-
-                      ),
-
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Container(
-                        // color: Colors.grey,
-                        height:MediaQuery.of(context).size.height * 0.28,
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Collections',
-                                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                              ),
-                            ),
-                            Container(
-                              // color: Colors.white,
-                              height:MediaQuery.of(context).size.height * 0.2,
-                              width: MediaQuery.of(context).size.width*0.95,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: Container(
-                                      height:MediaQuery.of(context).size.height * 0.2,
-                                      width: MediaQuery.of(context).size.width*0.82,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.white,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: ClipRRect(
-                                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                                          child: Image.asset('assets/sea.jpeg',fit: BoxFit.cover,)),
-
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: Container(
-                                      height:MediaQuery.of(context).size.height * 0.2,
-                                      width: MediaQuery.of(context).size.width*0.82,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.white,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: ClipRRect(
-                                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                                          child: Image.asset('assets/shore.jpeg',fit: BoxFit.cover,)),
-
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: Container(
-                                      height:MediaQuery.of(context).size.height * 0.2,
-                                      width: MediaQuery.of(context).size.width*0.82,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Colors.white,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: ClipRRect(
-                                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                                          child: Image.asset('assets/ocean.jpeg',fit: BoxFit.cover,)),
-
-                                    ),
-                                  ),
-
-
-                                ],
-                              ),
-
-                            )
-                          ],
-                        ),
-
-                      ),
-                      SizedBox(height: 0,),
-                      Container(
-                        // color: Colors.white,
-                        height:MediaQuery.of(context).size.height * 0.45,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Uploads',
-                                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Hero(
-                                      tag: 'sea',
-                                      child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,)),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Hero(
-                                      tag: 'ocean',
-                                      child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,)),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
 
                               ],
@@ -450,16 +305,24 @@ class _UploadScreenState extends State<UploadScreen> with TickerProviderStateMix
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
                                 ),
 
                               ],
@@ -581,16 +444,24 @@ class _UploadScreenState extends State<UploadScreen> with TickerProviderStateMix
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
 
                               ],
@@ -599,16 +470,24 @@ class _UploadScreenState extends State<UploadScreen> with TickerProviderStateMix
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
                                 ),
 
                               ],
@@ -730,16 +609,24 @@ class _UploadScreenState extends State<UploadScreen> with TickerProviderStateMix
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
 
                               ],
@@ -748,16 +635,189 @@ class _UploadScreenState extends State<UploadScreen> with TickerProviderStateMix
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/shore.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/sea.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(1.0),
-                                  child: Image.asset('assets/ocean.jpeg',height: 114,width: 114,fit: BoxFit.cover,),
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
+                                ),
+
+                              ],
+                            ),
+                          ],
+                        ),
+
+                      ),
+
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        // color: Colors.grey,
+                        height:MediaQuery.of(context).size.height * 0.28,
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Collections',
+                                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                              ),
+                            ),
+                            Container(
+                              // color: Colors.white,
+                              height:MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width*0.95,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      height:MediaQuery.of(context).size.height * 0.2,
+                                      width: MediaQuery.of(context).size.width*0.82,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.white,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: ClipRRect(
+                                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                                          child: Image.asset('assets/sea.jpeg',fit: BoxFit.cover,)),
+
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      height:MediaQuery.of(context).size.height * 0.2,
+                                      width: MediaQuery.of(context).size.width*0.82,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.white,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: ClipRRect(
+                                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                                          child: Image.asset('assets/shore.jpeg',fit: BoxFit.cover,)),
+
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      height:MediaQuery.of(context).size.height * 0.2,
+                                      width: MediaQuery.of(context).size.width*0.82,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.white,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: ClipRRect(
+                                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                                          child: Image.asset('assets/ocean.jpeg',fit: BoxFit.cover,)),
+
+                                    ),
+                                  ),
+
+
+                                ],
+                              ),
+
+                            )
+                          ],
+                        ),
+
+                      ),
+                      SizedBox(height: 0,),
+                      Container(
+                        // color: Colors.white,
+                        height:MediaQuery.of(context).size.height * 0.45,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Uploads',
+                                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
+                                ),
+
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/ocean.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/sea.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,
+                                    fit: BoxFit.cover,),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Image.asset('assets/shore.jpeg',
+                                    height: MediaQuery.of(context).size.height * 0.15,
+                                    width: MediaQuery.of(context).size.width * 0.32,fit: BoxFit.cover,),
                                 ),
 
                               ],

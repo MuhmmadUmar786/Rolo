@@ -121,18 +121,28 @@ class _FilterScreenState extends State<FilterScreen> with TickerProviderStateMix
           child: Column(
             children: [
               Container(
-                height: 160,
+                height: MediaQuery.of(context).size.height *0.23,
                 child: Stack(
                   children: [
-                    Image.asset('assets/new.jpeg',height: 160,width: double.infinity,fit: BoxFit.cover,),
+                    Image.asset('assets/new.jpeg',
+                      height: MediaQuery.of(context).size.height *0.23,
+                      width: double.infinity,fit: BoxFit.cover,),
+                    Positioned(
+                        top: 30,
+                        left: 12,
+                        child: GestureDetector(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
+                            child: Icon(Icons.arrow_back_ios_outlined,color: Colors.white,))),
                     Positioned(
                         top: 24,
-                        left: 12,
+                        left: 52,
                         child  : Text('Search',
                           style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 28),)),
                      Positioned(
                         top: 24,
-                        left: 312,
+                        left: 342,
                         child  : GestureDetector(
                             onTap: (){
                               Navigator.push(
@@ -142,11 +152,11 @@ class _FilterScreenState extends State<FilterScreen> with TickerProviderStateMix
                             },
                             child: Icon(Icons.wallet_giftcard_sharp,color: Colors.white,size: 32,))),
                     Positioned(
-                      top: 100,
+                      top: 130,
                       left: 20,
                       child: Container(
                         height: 40,
-                        width: 300,
+                        width: MediaQuery.of(context).size.width *0.9,
                         child: TextFormField(
                             style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
@@ -168,127 +178,373 @@ class _FilterScreenState extends State<FilterScreen> with TickerProviderStateMix
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(14.0),
-                child: Text('What can we help you find?',
-                style: TextStyle(color: Colors.white,fontSize: 28,fontWeight: FontWeight.bold),
-                ),
-              ),
               SizedBox(height: 5,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Graphic Designer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Video editor'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Illustrator'),
-                  ],
+              Container(
+                height: MediaQuery.of(context).size.height *0.73,
+                child: DefaultTabController(
+                  length: 2,
+                  child: Scaffold(
+                    backgroundColor:Color(0xff080404) ,
+                    appBar: TabBar(
+                      tabs: [
+                        Tab(text: 'Skills',),
+                        Tab(text: 'Names',),
+
+                      ],
+                    ),
+                    body: TabBarView(
+                      children: [
+                        Container(
+                          child: ListView(
+                            children: [
+                              SizedBox(height: 15,),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Actor',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Animator',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Art Director',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Cinematographer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Colorist',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Creative Designer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Dancer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Disc Jockey',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Film Director',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Film Producer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Fine Artist',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Graphic Designer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Hair Stylist',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Illustrator',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Instrumentalist',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Make Up',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Mastering Engineer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Mixing Engineer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Model',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Music Producer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Photo Editor',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Photo Retoucher',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Photographer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Product Designer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Set Designer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Singer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Song Wirter',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Stylist',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('UI / UX',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('VFX Editor',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Video Editor',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Videographer',style: TextStyle(color: Colors.white,fontSize: 18),),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: ListView(
+                            children: [
+                              SizedBox(height: 15,),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/alex.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Alex Well',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@alexwell',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/me.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Bubble Buster',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@bubblebuster',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/alex.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Alex Well',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@alexwell',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/me.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Bubble Buster',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@bubblebuster',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/alex.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Alex Well',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@alexwell',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/me.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Bubble Buster',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@bubblebuster',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),   Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/alex.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Alex Well',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@alexwell',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/me.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Bubble Buster',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@bubblebuster',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),   Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/alex.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Alex Well',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@alexwell',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    ClipRRect(
+                                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                        child : Image.asset('assets/me.jpg',height: 60,width: 60,)),
+                                    SizedBox(width: 15,),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Bubble Buster',
+                                          style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w800),),
+                                        Text('@bubblebuster',
+                                          style: TextStyle(color: Colors.white,fontSize: 16),),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+
+
+                            ],
+                          ),
+                        )
+
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Model'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Photographer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Art Director'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Videographer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Animator'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'VFX Artist'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Songwriter'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Music Producer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Actor'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'UI / UX Designer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Creative Director'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Dancer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Art Director'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Photo Retoucher'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Musician'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Colorist'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Make-Up Artist'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Set Designer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Director'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Photo Product Designer'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Cinematographer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Hair Stylist'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Stylist'),
-                  ],
-                ),
-              ),
+
+              )
+
+
             ],
           ),
         ),

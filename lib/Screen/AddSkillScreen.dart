@@ -12,6 +12,23 @@ class AddSkillScreen extends StatefulWidget {
 }
 
 class _AddSkillScreenState extends State<AddSkillScreen> {
+
+  bool designer=false;
+  bool editior=false;
+  bool illustrator=false;
+  bool modal=false;
+  bool photographer=false;
+  bool director=false;
+  bool videographer=false;
+  bool animator=false;
+  bool artist=false;
+  bool writer=false;
+  bool producer=false;
+  bool actor=false;
+  bool nash=false;
+  bool vegas=false;
+  bool jack=false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,16 +97,55 @@ class _AddSkillScreenState extends State<AddSkillScreen> {
                     style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17),),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    SkillButton(title: 'Graphic Designer'),
+                    GestureDetector(
+                        onTap: (){
+                          if(designer==false){
+                            setState(() {
+                              designer=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              designer=false;
+                            });
+                          }
+                        },
+                        child: SkillButton(title: 'Graphic Designer',isClicked: designer,)),
                     SizedBox(width: 3,),
-                    SkillButton(title: 'Video editor'),
+                    GestureDetector(
+                        onTap: (){
+                          if(editior==false){
+                            setState(() {
+                              editior=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              editior=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'Video editor',isClicked: editior,)),
                     SizedBox(width: 3,),
-                    SkillButton(title: 'Illustrator'),
+                    GestureDetector(
+                        onTap: (){
+                          if(illustrator==false){
+                            setState(() {
+                              illustrator=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              illustrator=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'Illustrator',isClicked: illustrator,)),
                   ],
                 ),
               ),
@@ -98,11 +154,51 @@ class _AddSkillScreenState extends State<AddSkillScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    SkillButton(title: 'Model'),
+                    GestureDetector(
+                        onTap: (){
+                          if(modal==false){
+                            setState(() {
+                              modal=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              modal=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'Model',isClicked: modal,)),
                     SizedBox(width: 3,),
-                    SkillButton(title: 'Photographer'),
+                    GestureDetector(
+                        onTap: (){
+                          if(photographer==false){
+                            setState(() {
+                              photographer=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              photographer=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'Photographer',isClicked: photographer,)),
                     SizedBox(width: 3,),
-                    SkillButton(title: 'Art Director'),
+                    GestureDetector(
+                        onTap: (){
+                          if(director==false){
+                            setState(() {
+                              director=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              director=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'Art Director',isClicked: director,)),
+
                   ],
                 ),
               ),
@@ -111,11 +207,50 @@ class _AddSkillScreenState extends State<AddSkillScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    SkillButton(title: 'Videographer'),
+                    GestureDetector(
+                        onTap: (){
+                          if(videographer==false){
+                            setState(() {
+                              videographer=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              videographer=false;
+                            });
+                          }
+                        },
+                        child: SkillButton(title: 'Videographer',isClicked: videographer,)),
                     SizedBox(width: 3,),
-                    SkillButton(title: 'Animator'),
+                    GestureDetector(
+                        onTap: (){
+                          if(animator==false){
+                            setState(() {
+                              animator=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              animator=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'Animator',isClicked: animator,)),
                     SizedBox(width: 3,),
-                    SkillButton(title: 'VFX Artist'),
+                    GestureDetector(
+                        onTap: (){
+                          if(artist==false){
+                            setState(() {
+                              artist=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              artist=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'VFX Artist',isClicked: artist,)),
                   ],
                 ),
               ),
@@ -124,52 +259,57 @@ class _AddSkillScreenState extends State<AddSkillScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    SkillButton(title: 'Songwriter'),
+                    GestureDetector(
+                        onTap: (){
+                          if(writer==false){
+                            setState(() {
+                              writer=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              writer=false;
+                            });
+                          }
+                        },
+                        child: SkillButton(title: 'Songwriter',isClicked: writer,)),
                     SizedBox(width: 3,),
-                    SkillButton(title: 'Music Producer'),
+                    GestureDetector(
+                        onTap: (){
+                          if(producer==false){
+                            setState(() {
+                              producer=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              producer=false;
+                            });
+                          }
+                        },
+                        child : SkillButton(title: 'Music Producer',isClicked: producer,)),
+
                     SizedBox(width: 3,),
-                    SkillButton(title: 'Actor'),
+                    GestureDetector(
+                        onTap: (){
+                          if(actor==false){
+                            setState(() {
+                              actor=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              actor=false;
+                            });
+                          }
+                        },
+                        child: SkillButton(title: 'Actor',isClicked: actor,)),
                   ],
                 ),
               ),
               SizedBox(height: 7,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'UI / UX Designer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Creative Director'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 7,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Dancer'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Art Director'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Photo Retoucher'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 7,),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Row(
-                  children: [
-                    SkillButton(title: 'Musician'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Colorist'),
-                    SizedBox(width: 3,),
-                    SkillButton(title: 'Make-Up Artist'),
-                  ],
-                ),
-              ),
-              SizedBox(height: 80,),
+
+              SizedBox(height: MediaQuery.of(context).size.height*0.17,),
               GestureDetector(
                 onTap: (){
                   Navigator.push(
@@ -507,8 +647,8 @@ class _PhotoSkillScreenState extends State<PhotoSkillScreen> {
                 ],
               ),
 
+              SizedBox(height: 20),
 
-              SizedBox(height: 20,),
               GestureDetector(
                 onTap: (){
                   Navigator.push(

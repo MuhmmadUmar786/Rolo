@@ -79,7 +79,8 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 180,),
+              SizedBox(height: MediaQuery.of(context).size.height*0.34,),
+
               GestureDetector(
                 onTap: (){
                   Navigator.push(

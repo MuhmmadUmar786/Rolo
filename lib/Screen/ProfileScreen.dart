@@ -9,6 +9,7 @@ import 'package:rolo/Screen/UploadScreen.dart';
 import 'package:rolo/Widget/SkillSpecifButton.dart';
 import 'package:share/share.dart';
 
+import 'InvitationScreen.dart';
 import 'RolodexScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -63,6 +64,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
     }
   }
 
+  double _value=50;
+
   @override
   Widget build(BuildContext context) {
     CardController controller;
@@ -71,7 +74,20 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
       appBar: AppBar(
         backgroundColor:Color(0xff080404) ,
         automaticallyImplyLeading: false,
-        title:Text('Profile',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+        leadingWidth: 100,
+        leading: Padding(
+          padding: const EdgeInsets.only(top: 16.0,left: 12),
+          child: Text('Profile',
+            style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+        ),
+        title:GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InvitationScreen()),
+              );
+            },
+            child: Icon(Icons.group_add_outlined,color: Colors.white,)),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 14.0,top: 10,bottom: 14),
@@ -86,8 +102,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                 height: 25,
                 width: 120,
                 decoration: BoxDecoration(
-                  color: Colors.grey[800],
-                  borderRadius: BorderRadius.circular(7),
+                  color: Colors.grey[900],
+                  borderRadius: BorderRadius.circular(17),
                 ),
                 child: Center(
                   child: Text('EDIT PROFILE',style: TextStyle(color: Colors.white),),
@@ -114,6 +130,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                     child: Row(
                       children: [
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
@@ -121,38 +139,49 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                                   padding: const EdgeInsets.all(8.0),
                                   child: ClipRRect(
                                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                                      child: Image.asset("assets/alex.jpg",height: 80,width:80,fit: BoxFit.cover,)),
+                                      child: Image.asset('assets/alex.jpg',
+                                        height: MediaQuery.of(context).size.height * 0.1,
+                                        width:MediaQuery.of(context).size.width * 0.24,
+                                        fit: BoxFit.cover,)),
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('KEVIN MCGOVERN',
-                                      style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),),
-                                    Text('kevinmcgovern',
-                                      style: TextStyle(color: Colors.black,fontSize: 18),),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.location_on_rounded,color: Colors.black,),
-                                        Text('New York',
-                                          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
-                                      ],
-                                    ),
-                                    Container(
-                                      color: Colors.green,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(2.0),
-                                        child: Text('AVAILABLE FOR HIRE'),
+                                Container(
+                                  height: MediaQuery.of(context).size.height * 0.12,
+                                  width:MediaQuery.of(context).size.width * 0.45,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(height: 10,),
+                                      Text('KEVIN MCGOVERN',
+                                        style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 18),),
+                                      Text('@kevinmcgovern',
+                                        style: TextStyle(color: Colors.black,fontSize: 17),),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.location_on_rounded,color: Colors.black,),
+                                          Text('New York',
+                                            style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 17),),
+                                        ],
                                       ),
-                                    )
-                                  ],
+                                      Container(
+                                        color: Colors.red,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Text('NOT AVAILABLE FOR HIRE',
+                                            style: TextStyle(fontSize: 12,color: Colors.white),),
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 )
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.only(left: 8.0,top: 6),
                               child: Align(
-                                alignment: Alignment.centerLeft,
+                                alignment: Alignment.topLeft,
                                 child: Container(
+                                  height: MediaQuery.of(context).size.height * 0.035,
+                                  width:MediaQuery.of(context).size.width * 0.4,
                                   decoration: BoxDecoration(
                                     border: Border.all(
                                       color: Colors.black,
@@ -162,51 +191,146 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.all(4.0),
-                                    child: Text('Graphic Designer',
-                                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                                    child: Center(
+                                      child: Text('Cinemato Grapher',
+                                        style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text("Focused on the moodier tones often not used.",
-                                    style: TextStyle(fontSize: 12),
-                                  )
-                              ),
-                            )
+
                           ],
                         ),
-                        SizedBox(width: 10,),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.black,
-                              child: Icon(Icons.add,color: Colors.white,),
-                            ),
-                            CircleAvatar(
-                              backgroundColor: Colors.black,
-                              child: Icon(Icons.message,color: Colors.white,),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                Share.share('check out my website https://example.com');
-                              },
-                              child: CircleAvatar(
+                        SizedBox(width: 17,),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.9,
+                          width:MediaQuery.of(context).size.width * 0.13,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.black,
+                                child: Icon(Icons.done,color: Colors.white,),
+                              ),
+                              CircleAvatar(
+                                backgroundColor: Colors.black,
+                                child: Icon(Icons.message,color: Colors.white,),
+                              ),
+                              CircleAvatar(
                                 backgroundColor: Colors.black,
                                 child: Icon(Icons.send,color: Colors.white,),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         )
                       ],
                     ),
                   ),
                 ),
               ),
+              SizedBox(height: 12,),
+
+              Container(
+                // color: Colors.white,
+                height:MediaQuery.of(context).size.height * 0.12,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 12.0),
+                          child: Text('Profile Strength:',style: TextStyle(color: Colors.white),),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 12.0),
+                          child: Icon(Icons.info_outline,color: Colors.white,),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 5,),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 11.0),
+                      child: Container(
+                        height:MediaQuery.of(context).size.height * 0.03,
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 10,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[800],
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12),
+                                  bottomLeft: Radius.circular(12),
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 2,),
+
+                            Container(
+                              height: 10,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                            SizedBox(width: 2,),
+
+                            Container(
+                              height: 10,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[400],
+                              ),
+                            ),
+                            SizedBox(width: 2,),
+
+                            Container(
+                              height: 10,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                              ),
+                            ),
+                            SizedBox(width: 2,),
+                            Container(
+                              height: 10,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[100],
+                              ),
+                            ),
+                            SizedBox(width: 2,),
+                            Container(
+                              height: 10,
+                              width: 65,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(12),
+                                  bottomRight: Radius.circular(12),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 12.0,right: 12,top: 5),
+                      child: Text('Having a strong profile is a great way to get recognized and increase your position in search results.',
+                      style: TextStyle(fontSize: 14,color: Colors.white),
+                      ),
+                    )
+                  ],
+                ),
+
+              ),
+              SizedBox(height: 12,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -259,152 +383,366 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               SizedBox(height: 12,),
               isPortfolio?
               Container(
-                // color: Colors.white,
-                  height:MediaQuery.of(context).size.height * 0.5,
+                  height:MediaQuery.of(context).size.height * 0.35,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/sea.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5.0,left: 8),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.035,
+                          width:MediaQuery.of(context).size.width * 0.4,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Center(
+                              child: Text('Cinemato Grapher',
+                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Colors.white),),
+                            ),
+                          ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/ocean.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/shore.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
-
-                      ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/shore.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/sea.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/ocean.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
+                    Container(
+                      height:MediaQuery.of(context).size.height * 0.3,
 
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/sea.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/ocean.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Image.asset('assets/shore.jpeg',height: 110,width: 110,fit: BoxFit.cover,),
-                        ),
+                      child: DefaultTabController(
+                        length: 3,
+                        child: Scaffold(
+                          backgroundColor:Color(0xff080404) ,
+                          appBar: TabBar(
+                            tabs: [
+                              Tab(text: 'All',),
+                              Tab(text: 'Television',),
+                              Tab(text: 'Film',),
+                            ],
+                          ),
+                          body: TabBarView(
+                            children: [
+                              Container(
+                                height:MediaQuery.of(context).size.height * 0.23,
+                                child: ListView(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
 
-                      ],
-                    ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height:MediaQuery.of(context).size.height * 0.23,
+                                child: ListView(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                height:MediaQuery.of(context).size.height * 0.23,
+                                child: ListView(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/sea.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/ocean.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset('assets/shore.jpeg',
+                                            height: MediaQuery.of(context).size.height * 0.15,
+                                            width: MediaQuery.of(context).size.width * 0.32,
+                                            fit: BoxFit.cover,),
+                                        ),
+
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
 
               ):
               Container(
-                height:MediaQuery.of(context).size.height * 0.5,
+                height:MediaQuery.of(context).size.height * 0.32,
                 child: ListView(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SkillSpecificButton(title: 'Instagram',
-                            icon: FaIcon(FontAwesomeIcons.instagram,color: Colors.white,size: 30,),
-                            isActive: false,
-                          ),
+                    SizedBox(height: 15,),
+                   Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: Row(
+                       children: [
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Icon(Icons.web,color: Colors.white,size: 35,),
+                         ),
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Text('Personal Website',
+                             style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 20),),
+                         ),
+                         Expanded(child: Container()),
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Icon(Icons.arrow_forward_ios_sharp,color: Colors.white,),
+                         )
+                       ],
+                     ),
+                   ),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                        );
+                      },
+                      child : Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.add,size: 35,color: Colors.white,),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SkillSpecificButton(title: 'LinkedIn',
-                            icon: FaIcon(FontAwesomeIcons.linkedin,color: Colors.white,size: 30),
-                            isActive: false,
-
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SkillSpecificButton(title: 'Tik Tok',
-                            icon: FaIcon(FontAwesomeIcons.tiktok,color: Colors.white,size: 30,),
-                            isActive: false,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SkillSpecificButton(title: 'Spotify',
-                            icon: FaIcon(FontAwesomeIcons.spotify,color: Colors.white,size: 30),
-                            isActive: false,
-
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SkillSpecificButton(title: 'Youtube',
-                            icon: FaIcon(FontAwesomeIcons.youtube,color: Colors.white,size: 30,),
-                            isActive: false,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SkillSpecificButton(title: 'Vimeo',
-                            icon: FaIcon(FontAwesomeIcons.vimeo,color: Colors.white,size: 30),
-                            isActive: false,
-
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(width: 10,),
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: SkillSpecificButton(title: 'Website',
-                            icon: FaIcon(FontAwesomeIcons.firefoxBrowser,color: Colors.white,size: 30,),
-                            isActive: false,
-                          ),
-                        ),
-
-                      ],
-                    ),
+                      ),
+                    )
 
                   ],
                 ),

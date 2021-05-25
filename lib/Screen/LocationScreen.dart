@@ -14,6 +14,24 @@ class LocationScreen extends StatefulWidget {
   _LocationScreenState createState() => _LocationScreenState();
 }
 class _LocationScreenState extends State<LocationScreen> {
+
+  bool newyork=false;
+  bool los=false;
+  bool chicago=false;
+  bool miami=false;
+  bool diago=false;
+  bool francisco=false;
+  bool atlanta=false;
+  bool houston=false;
+  bool boston=false;
+  bool phoenix=false;
+  bool seattle=false;
+  bool denver=false;
+  bool nash=false;
+  bool vegas=false;
+  bool jack=false;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,11 +59,11 @@ class _LocationScreenState extends State<LocationScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 20,),
+              SizedBox(height: 30,),
               Text('Where are you based?',
                 style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
 
-              SizedBox(height: 20,),
+              SizedBox(height: 30,),
               Padding(
                 padding: const EdgeInsets.only(left: 24.0,right: 24),
                 child: TextField(
@@ -64,7 +82,7 @@ class _LocationScreenState extends State<LocationScreen> {
                     )
                 ),
               ),
-              SizedBox(height: 30,),
+              SizedBox(height: 40,),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Align(
@@ -78,11 +96,50 @@ class _LocationScreenState extends State<LocationScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    LocationlButton(title: 'New York City'),
+                    GestureDetector(
+                        onTap: (){
+                          if(newyork==false){
+                            setState(() {
+                              newyork=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              newyork=false;
+                            });
+                          }
+                        },
+                        child: LocationlButton(title: 'New York City',isClicked: newyork,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Los Angeles'),
+                    GestureDetector(
+                        onTap: (){
+                          if(los==false){
+                            setState(() {
+                              los=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              los=false;
+                            });
+                          }
+                        },
+                        child: LocationlButton(title: 'Los Angeles',isClicked: los,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Chicago'),
+                    GestureDetector(
+                        onTap: (){
+                          if(chicago==false){
+                            setState(() {
+                              chicago=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              chicago=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Chicago',isClicked: chicago,)),
                   ],
                 ),
               ),
@@ -91,11 +148,50 @@ class _LocationScreenState extends State<LocationScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    LocationlButton(title: 'Miami'),
+                    GestureDetector(
+                        onTap: (){
+                          if(miami==false){
+                            setState(() {
+                              miami=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              miami=false;
+                            });
+                          }
+                        },
+                        child: LocationlButton(title: 'Miami',isClicked: miami,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'San Diego'),
+                    GestureDetector(
+                        onTap: (){
+                          if(diago==false){
+                            setState(() {
+                              diago=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              diago=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'San Diego',isClicked: diago,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'San Fancisco'),
+                    GestureDetector(
+                        onTap: (){
+                          if(francisco==false){
+                            setState(() {
+                              francisco=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              francisco=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'San Fancisco',isClicked: francisco,)),
                   ],
                 ),
               ),
@@ -104,11 +200,50 @@ class _LocationScreenState extends State<LocationScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    LocationlButton(title: 'Atlanta'),
+                    GestureDetector(
+                        onTap: (){
+                          if(atlanta==false){
+                            setState(() {
+                              atlanta=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              atlanta=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Atlanta',isClicked: atlanta,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Houston'),
+                    GestureDetector(
+                        onTap: (){
+                          if(houston==false){
+                            setState(() {
+                              houston=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              houston=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Houston',isClicked: houston,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Boston'),
+                    GestureDetector(
+                        onTap: (){
+                          if(boston==false){
+                            setState(() {
+                              boston=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              boston=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Boston',isClicked: boston,)),
                   ],
                 ),
               ),
@@ -117,11 +252,50 @@ class _LocationScreenState extends State<LocationScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    LocationlButton(title: 'Phoenix'),
+                    GestureDetector(
+                        onTap: (){
+                          if(phoenix==false){
+                            setState(() {
+                              phoenix=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              phoenix=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Phoenix',isClicked: phoenix,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Seattle'),
+                    GestureDetector(
+                        onTap: (){
+                          if(seattle==false){
+                            setState(() {
+                              seattle=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              seattle=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Seattle',isClicked: seattle,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Denver'),
+                    GestureDetector(
+                        onTap: (){
+                          if(denver==false){
+                            setState(() {
+                              denver=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              denver=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Denver',isClicked: denver,)),
                   ],
                 ),
               ),
@@ -130,17 +304,55 @@ class _LocationScreenState extends State<LocationScreen> {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: Row(
                   children: [
-                    LocationlButton(title: 'Nashville'),
+                    GestureDetector(
+                        onTap: (){
+                          if(nash==false){
+                            setState(() {
+                              nash=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              nash=false;
+                            });
+                          }
+                        },
+                        child: LocationlButton(title: 'Nashville',isClicked: nash,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Las Vegas'),
+                    GestureDetector(
+                        onTap: (){
+                          if(vegas==false){
+                            setState(() {
+                              vegas=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              vegas=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Las Vegas',isClicked: vegas,)),
                     SizedBox(width: 3,),
-                    LocationlButton(title: 'Jacksonville'),
+                    GestureDetector(
+                        onTap: (){
+                          if(jack==false){
+                            setState(() {
+                              jack=true;
+                            });
+                          }
+                          else{
+                            setState(() {
+                              jack=false;
+                            });
+                          }
+                        },
+                        child : LocationlButton(title: 'Jacksonville',isClicked: jack,)),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: MediaQuery.of(context).size.height*0.24,),
 
-              SizedBox(height: 80,),
               GestureDetector(
                 onTap: (){
                   Navigator.push(

@@ -89,13 +89,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       appBar: AppBar(
         backgroundColor:Color(0xff080404) ,
         elevation: 0,
-        leading:  GestureDetector(
+        automaticallyImplyLeading: false,
+        centerTitle: false,
+        title:  GestureDetector(
             onTap: (){
               Navigator.pop(context);
             },
             child: Padding(
-              padding: const EdgeInsets.only(left: 18.0),
-              child: Icon(Icons.clear,color: Colors.white,),
+              padding: const EdgeInsets.only(left: 1.0),
+              child: Text('Cancel',style: TextStyle(color: Colors.white),),
             )),
         actions: [
           GestureDetector(
@@ -103,8 +105,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               Navigator.pop(context);
             },
             child: Padding(
-              padding: const EdgeInsets.only(right: 18.0),
-              child: Icon(Icons.done,color: Colors.white,),
+              padding: const EdgeInsets.only(right: 18.0,top: 14),
+              child: Text('Done',style: TextStyle(color: Colors.white,fontSize: 18),),
             ),
           )
         ],

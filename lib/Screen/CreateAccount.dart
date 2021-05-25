@@ -100,10 +100,9 @@ class _CreateAccountState extends State<CreateAccount> {
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-
-
               SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(left: 24.0,right: 24),
@@ -158,7 +157,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     )
                 ),
               ),
-              SizedBox(height: 60,),
+              SizedBox(height: 90,),
               GestureDetector(
                 onTap: () {
                   _showPicker(context);
@@ -191,26 +190,29 @@ class _CreateAccountState extends State<CreateAccount> {
               ),
               SizedBox(height: 20,),
               Text('Upload profile picture',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-              SizedBox(height: 80,),
+              SizedBox(height: MediaQuery.of(context).size.height*0.2,),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 24.0,right: 24),
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CreateAccountSecond()),
-                    );
-                  },
-                  child: Container(
-                    height: 50,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color:  Colors.white,
-                      borderRadius: BorderRadius.circular(7),
-                    ),
-                    child: Center(
-                      child:Text('Next',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 24.0,right: 24),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CreateAccountSecond()),
+                      );
+                    },
+                    child: Container(
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color:  Colors.white,
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      child: Center(
+                        child:Text('Next',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                      ),
                     ),
                   ),
                 ),
@@ -313,7 +315,7 @@ class _CreateAccountSecondState extends State<CreateAccountSecond> {
                     )
                 ),
               ),
-              SizedBox(height: 280,),
+              SizedBox(height: MediaQuery.of(context).size.height*0.45,),
               GestureDetector(
                 onTap: (){
                   Navigator.push(

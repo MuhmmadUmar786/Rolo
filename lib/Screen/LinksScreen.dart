@@ -196,7 +196,8 @@ class _LinksScreenState extends State<LinksScreen> {
                 ),
               ),
 
-              SizedBox(height: 50,),
+              SizedBox(height: MediaQuery.of(context).size.height*0.14 ,),
+
               GestureDetector(
                 onTap: (){
                   Navigator.push(

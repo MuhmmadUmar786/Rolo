@@ -66,7 +66,7 @@ class _InvitationScreenState extends State<InvitationScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 180,),
+              SizedBox(height: MediaQuery.of(context).size.height*0.3,),
               GestureDetector(
                 onTap: (){
                   Navigator.pop(context);
